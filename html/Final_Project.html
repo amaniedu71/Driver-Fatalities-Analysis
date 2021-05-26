@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>Final_Project (4)</title>
+<title>Final_Project (5)</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13157,12 +13157,19 @@ div#notebook {
 <ol>
 <li>Does age affect the time of day an accident occurs?</li>
 </ol>
-<p><strong>Motivation for first question</strong>
-According to <a href="https://www.iihs.org/topics/older-drivers">IIHS</a>, drivers of different ages have varying levels of awereness on a fast moving road. They found that "drivers ages 70 and older, for example, were more likely than drivers ages 35-54 to make inadequate surveillance errors or to misjudge the length of a gap between vehicles or another vehicle's speed."</p>
+<p><strong>Motivation for first question</strong></p>
+<p>According to <a href="https://www.iihs.org/topics/older-drivers">IIHS</a>, drivers of different ages have varying levels of awereness on a fast moving road. They found that "drivers ages 70 and older, for example, were more likely than drivers ages 35-54 to make inadequate surveillance errors or to misjudge the length of a gap between vehicles or another vehicle's speed."</p>
 <p>Given that different road types offer different driving conditions, for example  According to the <a href="https://safety.fhwa.dot.gov/speedmgt/data_facts/docs/rd_func_class_1_42.pdf">US Department of Transportation</a> principal arterials which connect major cities within a state typically have a maximum speed of between 50 - 70 mph. This means that drivers of different ages need to have a high level of awareness since small mistake can lead to high speed accidents. According to <a href="https://pedshed.net/?p=1050">Pedshed</a> in relation to deaths caused by motor vehicle accidents, major arterials are the most dangerous road types followed by local streets and followed by collector streets. I intend to expand on this research by exploring motor vehicle fatalities across different age groups on different road types.</p>
 <p><strong>Motivation for second question</strong></p>
 <p>According to <a href="https://www.nature.com/articles/srep00278">Nature</a>, Presbyopia is a condition that causes eyesight to get worse as one progresses in age. Unfortunately, according to that article, this condition is inevitable no matter how healthy you are. Moreover, according to the <a href="https://www.cdc.gov/transportationsafety/older_adult_drivers/index.html#:~:text=In%202018%2C%20there%20were%20more,a%2060%25%20increase%20since%202000.&amp;text=Driving%20helps%20older%20adults%20stay%20mobile%20and%20independent.">CDC</a> there are more than 45 million licensed drivers aged 65 and older in the United States. This is interesting since according to the Nature article, Presbyopia starts affecting virtually everbody starting at age 51.This motivates this research question, as to whether age and implicitly eyesight is a determinant factor to the time of day a fatal accident occurs. Important to note, however, is that any result from this does not imply causation as it may be dependent on numerous other factors such as the visibility of the road etc. I hypothesize that there will be a positive correlation observed. In addition, I hypothesize that such a correlation may be stronger for older adults, but will still be there for people of all ages. This is because low visibility because of time of day makes it hard for everyone, regardless of age, to drive safely.</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Import-Data-and-Required-Libraries">Import Data and Required Libraries<a class="anchor-link" href="#Import-Data-and-Required-Libraries">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13742,14 +13749,14 @@ According to <a href="https://www.iihs.org/topics/older-drivers">IIHS</a>, drive
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[127]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="c1">#print(crash[&#39;TWAY_ID&#39;].describe())</span>
-<span class="c1">#print(crash[&#39;TWAY_ID&#39;].isna().sum())</span>
+<div class=" highlight hl-python"><pre><span></span><span class="c1"># To get a feel for the data</span>
 <span class="k">print</span><span class="p">(</span><span class="n">person_raw</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">person_raw</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="n">person_types</span> <span class="o">=</span> <span class="n">person_raw</span><span class="p">[</span><span class="s1">&#39;PER_TYPNAME&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+
+<span class="n">person_types</span> <span class="o">=</span> <span class="n">person_raw</span><span class="p">[</span><span class="s1">&#39;PER_TYPNAME&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span> 
 <span class="n">motor_vehicle_drivers</span> <span class="o">=</span> <span class="n">person_raw</span><span class="p">[</span><span class="n">person_raw</span><span class="p">[</span><span class="s1">&#39;PER_TYPNAME&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">&#39;Driver of a Motor Vehicle In-Transport&#39;</span><span class="p">)]</span>
 <span class="n">injury_types</span> <span class="o">=</span> <span class="n">person_raw</span><span class="p">[</span><span class="s1">&#39;INJ_SEVNAME&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 <span class="n">fatal_accidents</span> <span class="o">=</span> <span class="n">person_raw</span><span class="p">[</span><span class="n">person_raw</span><span class="p">[</span><span class="s1">&#39;INJ_SEVNAME&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">&#39;Fatal Injury (K)&#39;</span><span class="p">)]</span>
@@ -13761,7 +13768,7 @@ According to <a href="https://www.iihs.org/topics/older-drivers">IIHS</a>, drive
 
 <span class="c1"># filtering people who are not motor vehicle drivers, and accidents that were not fatal</span>
 <span class="n">person</span> <span class="o">=</span> <span class="n">person_raw</span><span class="p">[(</span><span class="n">person_raw</span><span class="p">[</span><span class="s1">&#39;PER_TYPNAME&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">&#39;Driver of a Motor Vehicle In-Transport&#39;</span><span class="p">))</span><span class="o">&amp;</span> <span class="p">(</span><span class="n">person_raw</span><span class="p">[</span><span class="s1">&#39;INJ_SEVNAME&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">&#39;Fatal Injury (K)&#39;</span><span class="p">))]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;size of processed data:&quot;</span><span class="p">,</span> <span class="n">person</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;,Percentage of raw data:&quot;</span><span class="p">,</span> <span class="n">f</span><span class="s1">&#39;{(person.shape[0]*100/person_raw.shape[0]):.2f}%&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Size of processed data:&quot;</span><span class="p">,</span> <span class="n">person</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;,percentage of processed data:&quot;</span><span class="p">,</span> <span class="n">f</span><span class="s1">&#39;{(person.shape[0]*100/person_raw.shape[0]):.2f}%&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13809,7 +13816,7 @@ types of injuries gotten from accidents [&#39;Fatal Injury (K)&#39; &#39;Suspect
 
 Number of fatal accidents recorded: 36835 ,percentage of accidents that are fatal: 43.67%
 
-size of processed data: (23045, 118) ,Percentage of raw data: 27.32%
+Size of processed data: (23045, 118) ,percentage of processed data: 27.32%
 </pre>
 </div>
 </div>
@@ -13818,12 +13825,29 @@ size of processed data: (23045, 118) ,Percentage of raw data: 27.32%
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Exploring-Age-vs-Where-An-Accident-Occured">Exploring Age vs Where An Accident Occured<a class="anchor-link" href="#Exploring-Age-vs-Where-An-Accident-Occured">&#182;</a></h3><p>"Where" here is in terms of road type. The different road types are (in order of relative size):</p>
+<ul>
+<li>Interstate - state to state</li>
+<li>Principal Arterial - major city to major city</li>
+<li>Minor Arterial - other cities               </li>
+<li>Major Collector  - feeds from minor collectors to arterials</li>
+<li>Minor Collector - feeds from local roads to major collectors and arterials        </li>
+<li>Local - remaining roads            </li>
+</ul>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">person</span><span class="p">[</span><span class="s1">&#39;AGE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class=" highlight hl-python"><pre><span></span><span class="c1"># Descriptive statistics of the age column</span>
+<span class="n">person</span><span class="p">[</span><span class="s1">&#39;AGE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13864,7 +13888,8 @@ Name: AGE, dtype: float64</pre>
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">total_age_none_entries</span> <span class="o">=</span> <span class="n">person</span><span class="p">[(</span><span class="n">person</span><span class="p">[</span><span class="s1">&#39;AGE&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">999</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="s1">&#39;AGE&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">998</span><span class="p">)</span> <span class="p">][</span><span class="s1">&#39;AGE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<div class=" highlight hl-python"><pre><span></span><span class="c1"># Filtering data</span>
+<span class="n">total_age_none_entries</span> <span class="o">=</span> <span class="n">person</span><span class="p">[(</span><span class="n">person</span><span class="p">[</span><span class="s1">&#39;AGE&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">999</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="s1">&#39;AGE&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">998</span><span class="p">)</span> <span class="p">][</span><span class="s1">&#39;AGE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 <span class="n">total_entries</span> <span class="o">=</span> <span class="n">person</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Number of person entries whose age is not reported:&quot;</span><span class="p">,</span> <span class="n">total_age_none_entries</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Total number of person entries:&quot;</span><span class="p">,</span> <span class="n">total_entries</span><span class="p">)</span>
@@ -14519,9 +14544,9 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Given that there are so few driver fatalities not on either a rural or urban road, such as in.a trafficway not in state inventory, I filtered them out.</p>
-<p>This shows that there are more driver fatalities, 449, on rural roads than on urban roads.</p>
-<p>Explain what rural vs urban means</p>
+<p>According to <a href="https://ucanr.edu/sites/forestry/Webinars/Rural_Roads_Webinar_Series/#:~:text=Rural%20roads%20are%20defined%20as,recreational%20and%20resource%20management%20uses.&amp;text=They%20may%20be%20%E2%80%9Clegacy%E2%80%9D%20roads,trails%20or%20historic%20logging%20roads.">University of California</a>
+rural roads are defined as low traffic volume roads located in forested and rangeland settings that serve residential use. On the other hand, according to <a href="https://stats.oecd.org/glossary/detail.asp?ID=4009">OECD</a> urban roads are roads within the boundaries of a built-up area, which is an area with entries and exits specially sign-posted as such.</p>
+<p>This shows that there are more driver fatalities, 449, on rural roads than on urban roads. Given that there are so few driver fatalities not on either a rural or urban road, such as in trafficways that are not on the state inventory, I filter them out.</p>
 
 </div>
 </div>
@@ -15695,8 +15720,14 @@ is not linearly correlated to hour of day
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>What we learn</strong></p>
-<p>For the first question:</p>
+<h3 id="What-we-learn">What we learn<a class="anchor-link" href="#What-we-learn">&#182;</a></h3><p><strong>For the first question:</strong></p>
+<p>Does age affect where a driver in a motor vehicle is involved in a fatal accident?</p>
+<p>We learn that the number of driver fatalities across age groups is statistically different in different road types. However, we also learn that when looking at relative fatalities (percentage of fatalities) across different age groups there is no statistical difference in different road types. This means that the proportion of those who died across different age groups is similar regardless of the road type.</p>
+<p>Furthermore, we learn when looking at rural or urban roads, both the total number and relative percentage of fatalities across different age groups is not statitically different in rural or urban roads. This means that both the total number and proportion of driver fatalities across age groups is the same regardless of whether it is a rural road or an urban road.</p>
+<p>A similar result was found for regions, which showed that there is no statistical difference of number and relative driver fatalities across different age groups in different geographical regions.</p>
+<p><strong>For the second question:</strong></p>
+<p>Does age affect the time of day an accident occurs?</p>
+<p>We learnt that there is indeed a correlation between the number of fatalities across different age groups and the time an accident occurs. Furthermore, we notice that there is seemingly a strong positive correlation of number of fatalities vs hour of day for older adults people during the hours 3am to 2pm and a strong negative correlation from the hours 2pm to 11pm. The peak number of fatalities in a certain hour is 417 deaths at 2pm for aged people. The fact that it occurs at 2pm, might be more of a matter of work schedule rather than lighting conditions and observability since this is the afternoon.</p>
 
 </div>
 </div>
@@ -15704,10 +15735,10 @@ is not linearly correlated to hour of day
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Ethical Concerns</strong>
-It is always a concern when studies show correlations between demographic data and something happening. This is because to the public and stakeholders involved, a causaility relationship may sometimes be unwillingly implied. This can lead to discrimination against implicated social groups.</p>
-<p>Stakeholders of this study include but are not limited to drivers, those who live or work in an area with roads, policy makers, hospital workers who care for the injured, those who construct roads and many more secondary stakeholders.</p>
-<p>The results of such a study may result in conflict in agenda between some of the  stakeholders. For example, policy makers may make policies in aim of reducing accidents but that result in limited mobility of certain drivers from a social group.</p>
+<h3 id="Ethical-Concerns">Ethical Concerns<a class="anchor-link" href="#Ethical-Concerns">&#182;</a></h3><p>It is always a concern when studies show correlations between demographic data and something happening. This is because to the public and stakeholders involved, a causaility relationship may sometimes be unwillingly implied. This can lead to discrimination against implicated social groups.</p>
+<p>Certain stakeholders might be particularly interested in the results of such a result, for example, car owners. Based on the result of motor vehicle driver fatalities across different age groups in different road types, car owners might decide to use certain roads less frequently because of the risk it poses to them, especially since the results of this study would be specific to their age category. This can then have a ripple effect, one of which could be increased traffic congestation on smaller roads and increased cases of overspeeding on larger arterial roads, if for example the results show that arterial roads are more dangerous.</p>
+<p>Car dealers might also sell cars that are more suitable for certain road types. For example, cars that are more suited for driving on local bumpy roads might be sold more if more people become sensitive to driving on dangerous arterial roads. Policy makers might also be impacted and might decide, for example, to limiit speeds on certain roads at certain times of the day, given the results that certain times of the day are more dangerous.</p>
+<p>This might then inhibit mobility as people cannot go as fast to their workplaces or homes. Lastly, policy makers might make policies targeted for individuals of certain ages, such as limited mobility for people over certain years. In fact, in some states it is required for people who are over a certain number of years of age to get tested more frequently. This might impact the number of older adults on the road not to mention the impact on their sense of independence as they might have to rely on other people to drive them.</p>
 
 </div>
 </div>
